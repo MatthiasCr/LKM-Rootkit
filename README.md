@@ -1,4 +1,4 @@
-# Linux Kernel Module rootkit
+# Linux Kernel Module Rootkit
 
 For educational purposes only.
 
@@ -31,7 +31,7 @@ This simple kernel module rootkit overwrites linux system calls to hide itself, 
 - Unhide process with pid
 
   ```sh
-  $ kill -62 <pid>
+  $ kill -61 <pid>
   ```
 
 It also hides every file and directory with prefix `rootk_`.
